@@ -150,6 +150,19 @@
         }
       ],
       "id": 7
+    },
+    {
+      "accountNumber": "007",
+      "Product": "P-8",
+      "Description": "wertyuiopoiuytrew",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-08-01",
+          "amount": 5000
+        }
+      ],
+      "id": 8
     }
   ]
 }
