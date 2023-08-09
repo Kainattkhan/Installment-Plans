@@ -1,0 +1,155 @@
+{
+  "accounts": [
+    {
+      "accountNumber": "001",
+      "Product": "P-1",
+      "Description": "ertyuiop",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-08-07",
+          "amount": 5000
+        }
+      ],
+      "id": 1
+    },
+    {
+      "accountNumber": "002",
+      "Product": "P-2",
+      "Description": "ertyuio",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-08-15",
+          "amount": 4000
+        }
+      ],
+      "id": 2
+    },
+    {
+      "accountNumber": "003",
+      "Product": "P-3",
+      "Description": "DESC",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-02-14",
+          "amount": 4000
+        },
+        {
+          "installmentNumber": 2,
+          "dueDate": "2023-07-12",
+          "amount": 5000
+        },
+        {
+          "installmentNumber": 3,
+          "dueDate": "2023-05-10",
+          "amount": 4000
+        },
+        {
+          "installmentNumber": 4,
+          "dueDate": "2023-04-20",
+          "amount": 4000
+        }
+      ],
+      "id": 3
+    },
+    {
+      "accountNumber": "004",
+      "Product": "P-4",
+      "Description": "DESC",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-08-24",
+          "amount": 2000
+        },
+        {
+          "installmentNumber": 2,
+          "dueDate": "2023-09-06",
+          "amount": 2000
+        },
+        {
+          "installmentNumber": 3,
+          "dueDate": "2023-09-25",
+          "amount": 2000
+        }
+      ],
+      "id": 4
+    },
+    {
+      "accountNumber": "005",
+      "Product": "P-5",
+      "Description": "DESC",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-04-05",
+          "amount": 1500
+        },
+        {
+          "installmentNumber": 2,
+          "dueDate": "2023-05-15",
+          "amount": 1500
+        },
+        {
+          "installmentNumber": 3,
+          "dueDate": "2023-08-01",
+          "amount": 3000
+        },
+        {
+          "installmentNumber": 4,
+          "dueDate": "2023-03-10",
+          "amount": 1500
+        }
+      ],
+      "id": 5
+    },
+    {
+      "accountNumber": "006",
+      "Product": "P-6",
+      "Description": "DESC",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-01-10",
+          "amount": 5000
+        },
+        {
+          "installmentNumber": 2,
+          "dueDate": "2023-02-02",
+          "amount": 5000
+        },
+        {
+          "installmentNumber": 3,
+          "dueDate": "2023-03-07",
+          "amount": 5000
+        },
+        {
+          "installmentNumber": 4,
+          "dueDate": "2023-04-12",
+          "amount": 5000
+        },
+        {
+          "installmentNumber": 5,
+          "dueDate": "2023-06-01",
+          "amount": 10000
+        }
+      ],
+      "id": 6
+    },
+    {
+      "accountNumber": "007",
+      "Product": "p7",
+      "Description": "ertyu",
+      "Details": [
+        {
+          "installmentNumber": 1,
+          "dueDate": "2023-08-15",
+          "amount": 5000
+        }
+      ],
+      "id": 7
+    }
+  ]
+}
