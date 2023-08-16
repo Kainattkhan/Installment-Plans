@@ -1,7 +1,65 @@
+<!-- 
 
+  <div>
+    <h2>Installment Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Installment Number</th>
+          <th>Due Date</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of data">
+          <td>{{ detail.installmentNumber }}</td>
+          <td>{{ detail.dueDate }}</td>
+          <td>{{ detail.amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <!-- <div>
+    <h2>Installment Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Installment Number</th>
+          <th>Due Date</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let installment of data">
+          <td>{{ installment.installmentNumber }}</td>
+          <td>{{ installment.dueDate }}</td>
+          <td>{{ installment.amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+  <!-- installment-popup.component.html -->
 
 <h2>Installment Details</h2>
-<p>Installment Number: {{ data.installmentNumber }}</p>
-<p>Due Date: {{ data.dueDate }}</p>
-<p>Amount: {{ data.amount }}</p>
+<table>
+  <thead>
+    <tr>
+      <th>Installment Number</th>
+      <th>Due Date</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ data.installmentNumber }}</td>
+      <td>{{ data.dueDate | date:'yyyy-MM-dd' }}</td>
+      <td>{{ data.amount }}</td>
+    </tr>
+  </tbody>
+</table>
+
 <button mat-dialog-close>Close</button>
+
+  
+  

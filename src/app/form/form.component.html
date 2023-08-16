@@ -3,9 +3,10 @@
 </div>
 
 <div class="container">
-<div class="form-container" [formGroup]="form">
+<div class="form-container" [formGroup]="form" >
+
     <label class="form-label">Account Number:</label>
-    <input type="text" formControlName="accountNumber" class="form-input" />
+    <input type="text" formControlName="id" class="form-input" />
   
     <label class="form-label">Name:</label>
     <input type="text" formControlName="name" class="form-input" />
@@ -32,17 +33,53 @@
           <td><input type="number" [formControl]="installment.amountControl" class="form-input" /></td>
         </tr>
       </tbody>
-      <button type="button" (click)="saveData()" class="add-more-btn">Save</button>
+      <button type="button" class="add-more-btn" (click)="onSaveOrUpdate()">Save</button>
+      <!-- <button type="button" (click)="saveOrUpdateData()" class="add-more-btn">Save</button> -->
+
+
     </table>      
 </div>
 
-<div [formGroup]="form">
+
+<form [formGroup]="form" class="divmid">
   <h3>View your Installments in calendar</h3>
   <label class="form-label">Account Number:</label>
-  <input type="text" formControlName="accountNumber" class="form-input" />
-  <button type="button" class="view" (click)="fetchDueDateData()">View</button>
-</div>
+  <input type="text" formControlName="id" class="form-input" />
+  <button type="button" class="view" (click)="fetchDataById(form.controls.id.value)">View</button>
 
+
+  <div *ngFor="let data of fetchedDueDateData" class="data-box">
+    <h3>Account Details</h3>
+    <p>Account Number: {{ data.id }}</p>
+    <p>Name: {{ data.Name }}</p>
+    <p>Product: {{ data.Product }}</p>
+    <p>Description: {{ data.Description }}</p>
+  
+    <h3>Installment Details</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Int.No.</th>
+        <th>Due Date  </th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detail of data.Details">
+        <td>{{ detail.installmentNumber }}</td>
+        <td>{{ detail.dueDate }}</td>
+        <td>{{ detail.amount }}</td>
+      </tr>
+      <tr>
+      <td colspan="2" style="text-align: right;">Total:</td>
+      <td>{{ data.totalAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="view" (click)="updateAccount()">Update</button>
+  </div>  
+</form>
+ 
 <div class="calendar-container">
   <div class="calendar-controls">
     <button (click)="prevYear()" class="btn">&#8249; </button>
@@ -50,30 +87,33 @@
     <button (click)="nextYear()" class="btn"> &#8250;</button>
   </div>
 
-  <table class="calendar-table">
-    <tr>
-      <th></th>
-      <ng-container *ngFor="let month of months">
-        <th>{{ month }}</th>
-      </ng-container>
-    </tr>
-    <ng-container *ngFor="let day of days">
+  <div class="table-container">
+    <table class="calendar-table">
       <tr>
-        <td>{{ day.day }}</td>
-        <ng-container *ngFor="let dayName of day.dayNames; let j = index">
-          <td
-            (click)="openInstallmentPopup(day.day, j)"
-            [ngClass]="{
-              'due-date-cell': isDueDateCell(day.day, j)
-            }"
-          >
-            {{ dayName }}
-          </td>
+        <th></th>
+        <ng-container *ngFor="let month of months">
+          <th>{{ month }}</th>
         </ng-container>
       </tr>
-    </ng-container>
-  </table>
+      <ng-container *ngFor="let day of days">
+        <tr>
+          <td>{{ day.day }}</td>
+          <ng-container *ngFor="let dayName of day.dayNames; let j = index">
+            <td
+            (click)="openInstallmentPopup(day.day, j)"
+              [ngClass]="{'due-date-cell': isDueDateCell(day.day, j)}">
+              {{ dayName }}
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
 </div>
+  
+
+ 
+
 
 
 

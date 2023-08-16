@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { InstallmentPopupComponent } from './installment-popup/installment-popup.component'; 
 import { ToastrModule } from 'ngx-toastr';
+import { MatTableModule } from '@angular/material/table'
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatTableModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
