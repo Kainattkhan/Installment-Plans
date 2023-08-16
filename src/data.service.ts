@@ -29,37 +29,9 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  // saveData(accountDetail: AccountDetail): Observable<any> {
-  //   return this.http.post(`${this.apiUrl}`, accountDetail);
-  // }
- 
-  // getAllData(): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}`);
-  // }
-
-  // updateData(accountNumber: string, data: any): Observable<any> {
-  //   return this.http.put(`${this.apiUrl}/${accountNumber}`, data);
-  // }
-
-
-
-
-  // saveData(accountDetail: AccountDetail): Observable<any> {
-  //   return this.http.post(`${this.apiUrl}`, { account: accountDetail });
-  // }
-
-  // updateData(accountNumber: string, accountDetail: AccountDetail): Observable<any> {
-  //   return this.http.put(`${this.apiUrl}/${accountNumber}`, { account: accountDetail });
-  // }
-
   getAllData(): Observable<any> {
     return this.http.get(`${this.apiUrl}`);
   }
-
- 
-
-
-
 
   saveData(accountDetail: AccountDetail): Observable<any> {
     const newAccount = {

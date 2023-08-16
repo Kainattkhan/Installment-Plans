@@ -13,7 +13,6 @@ interface InstallmentDetail {
   styleUrls: ['./installment-popup.component.css']
 })
 export class InstallmentPopupComponent {
-  // constructor(@Inject(MAT_DIALOG_DATA) public data: InstallmentDetail[]) {}
   constructor(@Inject(MAT_DIALOG_DATA) public data: InstallmentDetail) {}
 
 }

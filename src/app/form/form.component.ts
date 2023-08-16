@@ -44,12 +44,10 @@ export class FormComponent implements OnInit{
   fetchedDueDateData: AccountWithTotal[] = [];
 
   ngOnInit() {
-    this.fetchAllData();
-      
+    this.fetchAllData();   
   }
  
-  constructor(
-    private http:HttpClient, 
+  constructor( 
     private fb: FormBuilder, 
     private dataService: DataService, 
     private dialog: MatDialog,
@@ -68,6 +66,17 @@ export class FormComponent implements OnInit{
   }
 
  apiUrl = 'http://localhost:3000/accounts'; 
+
+ addInstallments() {
+  const newInstallment = {
+    installmentNumberControl: new FormControl(0),
+    dueDateControl: new FormControl(''),
+    amountControl: new FormControl(0)
+  };
+    
+  this.installments = [...this.installments, newInstallment];
+  this.showInstallmentsTable = true;
+}
 
 onSaveOrUpdate() {
   const accountData = this.form.controls;
@@ -96,7 +105,6 @@ onSaveOrUpdate() {
         console.log('Data updated:', response);
         this.toastr.success('Data updated successfully!');
         this.accountsData[existingAccountIndex] = accountDetail; // Updates the data in the local array
-        // this.fetchAllData(); // Fetch all data again to refresh the view
       },
       (error: any) => {
         console.error('Error updating data:', error);
@@ -110,7 +118,6 @@ onSaveOrUpdate() {
         console.log('Data saved:', response);
         this.toastr.success('Data saved successfully!');
         this.fetchAllData(); // Fetch all data again to refresh the view
-        this.resetForm();
       },
       (error: any) => {
         console.error('Error saving data:', error);
@@ -187,21 +194,6 @@ fetchDataById(id: string) {
   }
 }
 
-addInstallments() {
-  const newInstallment = {
-    installmentNumberControl: new FormControl(0),
-    dueDateControl: new FormControl(''),
-    amountControl: new FormControl(0)
-  };
-    
-  this.installments = [...this.installments, newInstallment];
-  this.showInstallmentsTable = true;
-}
-
-resetForm() {
-  
-}
-
   prevYear(): void {
     this.currentYear -= 1;
     this.populateDays();
@@ -242,11 +234,9 @@ resetForm() {
       return (
         date1.getFullYear() === date2.getFullYear() &&
         date1.getMonth() === date2.getMonth() &&
-        date1.getDate() === date2.getDate()
-        
-      );
-     
-} 
+        date1.getDate() === date2.getDate() 
+      );    
+    } 
 
 //method to add css if its a dueDate
   isDueDateCell(day: number, monthIndex: number): boolean {
@@ -267,9 +257,9 @@ resetForm() {
       const year = this.currentYear;
       const dueDate = new Date(year, month, clickedDay);
       
-      // Check if there are fetched due date details for the current account
+      // To Check if there are fetched due date details for the current account
       if (this.fetchedDueDateData.length > 0) {
-        const matchingAccount = this.fetchedDueDateData[0]; // Assuming you're fetching only one account's details
+        const matchingAccount = this.fetchedDueDateData[0]; // fetching only one account's details
         const matchingInstallment = matchingAccount.Details.find(installment =>
           this.isSameDate(new Date(installment.dueDate), dueDate)
         );
@@ -280,14 +270,11 @@ resetForm() {
           });
       
           dialogRef.afterClosed().subscribe(result => {
-            // Handle any actions after the dialog is closed if needed
+            
           });
         } else {
           console.log("No installment details found for this day.");
         }
       }
     }
-    
-      
-
 }
